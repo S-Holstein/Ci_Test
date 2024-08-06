@@ -36,7 +36,7 @@ jobs:
     - name: Checkout Repository
       run: |
         git init
-        git remote add origin https://github.com/benutzername/repository.git
+        git remote add origin https://github.com/S-Holstein/Ci_Test.git
         git config core.sparseCheckout true
         echo "synced/" >> .git/info/sparse-checkout
         echo ".github/workflows/python_Ci.yml" >> .git/info/sparse-checkout
