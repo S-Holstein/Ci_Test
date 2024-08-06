@@ -9,16 +9,16 @@ on:
     branches:
       - "main"
     paths:
-      - 'synced/**'
-      - '.github/workflows/python_Ci.yml'
+      - 'Dummy/synced/**'
+      - 'Dummy/.github/workflows/python_Ci.yml'
 
 
   pull_request:
     branches:
       - "main"
     paths:
-      - 'synced/**'
-      - '.github/workflows/python_Ci.yml'
+      - 'Dummy/synced/**'
+      - 'Dummy/.github/workflows/python_Ci.yml'
 
 
 
@@ -83,6 +83,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+
 
 
 

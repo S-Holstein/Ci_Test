@@ -6,7 +6,7 @@ def message_to_the_world(text: str) -> bool:
         print(text)
         return True
     else:
-        return hhhFalse
+        return hhFalse
 
 
 def add(n_1: int, n_2: int) -> int:
