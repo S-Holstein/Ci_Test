@@ -10,7 +10,7 @@ on:
       - "main"
     paths:
       - 'Dummy/synced/**'
-      - 'Dummy/.github/workflows/python_Ci.yml'
+      - '.github/workflows/python_Ci.yml'
 
 
   pull_request:
@@ -18,7 +18,7 @@ on:
       - "main"
     paths:
       - 'Dummy/synced/**'
-      - 'Dummy/.github/workflows/python_Ci.yml'
+      - '.github/workflows/python_Ci.yml'
 
 
 
