@@ -27,7 +27,7 @@ permissions:
  contents: read
 
 jobs:
-  black-formatter-test:
+  black-Formatting:
 
     runs-on: ubuntu-latest
 
@@ -63,7 +63,7 @@ jobs:
 
 
 
-  flake8:
+  flake8-Linting:
 
     runs-on: ubuntu-latest
 
@@ -100,7 +100,7 @@ jobs:
 
 
 
-  pytest:
+  pytest-Testing:
 
     runs-on: ubuntu-latest
 
