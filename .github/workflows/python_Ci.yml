@@ -36,7 +36,7 @@ jobs:
     - name: Checkout Repository
       run: |
         git init
-        git remote add origin https://github.com/${{ GITHUB_REPOSITORY }}.git
+        git remote add origin https://github.com/${{ github.repository }}.git
         git config core.sparseCheckout true
         
         echo "synced/" >> .git/info/sparse-checkout
