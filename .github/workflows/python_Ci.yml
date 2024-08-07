@@ -36,10 +36,12 @@ jobs:
     - name: Checkout Repository
       run: |
         git init
-        git remote add origin https://github.com/S-Holstein/Ci_Test.git
+        git remote add origin https://github.com/${{ GITHUB_REPOSITORY }}.git
         git config core.sparseCheckout true
+        
         echo "synced/" >> .git/info/sparse-checkout
         echo ".github/workflows/python_Ci.yml" >> .git/info/sparse-checkout
+        
         git pull origin main
   
 
@@ -53,32 +55,32 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest black
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+#        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
 
 
 
-    - name: Run black and show diff
-      run: |
-        black .  # Wende black an, um den Code zu formatieren
-        git diff  # Zeige die Änderungen an, die von black vorgenommen wurden
+#    - name: Run black and show diff
+#      run: |
+#        black .  # Wende black an, um den Code zu formatieren
+#        git diff  # Zeige die Änderungen an, die von black vorgenommen wurden
 
 
 
-#    - name: Final format check with black
-#      run: black --check .
-
-
+    - name: Final format check with black
+      run: black --check --diff --color .
 
 
 
 
     - name: Lint with flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 --max-line-length 120 --count --statistics .
+#        # stop the build if there are Python syntax errors or undefined names
+#        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+#        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+#        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
 
     - name: Test with pytest
       run: |

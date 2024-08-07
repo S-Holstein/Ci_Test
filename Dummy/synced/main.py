@@ -2,6 +2,19 @@ import argparse
 
 
 def message_to_the_world(text: str) -> bool:
+    """
+    Gibt eine Nachricht aus.
+
+    Parameter:
+    text (str): Auszugebender Text.
+
+    Return:
+    bool: True, wenn Parameter ist Text, false wenn nicht.
+
+    Beispiel:
+    >>> message_to_the_world("Test")
+    Test
+    """
     if isinstance(text, str):
         print(text)
         return True
