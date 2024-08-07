@@ -3,7 +3,8 @@
 
 name: Python application
 
-# Nur Trigger
+# push und pull path and/or files set here are only the ones triggering this workflow. The actual code to check is
+# set via sparsecheckout in the step "Checkout Repository".
 on:
   push:
     branches:
@@ -67,7 +68,7 @@ jobs:
 
 
 
-    - name: Final format check with black
+    - name: Format check with black
       run: black --check --diff --color .
 
 
