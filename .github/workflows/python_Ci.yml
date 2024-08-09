@@ -72,11 +72,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-      with:
-        sparse-checkout: |
-          README.md
-        sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            README.md
+          sparse-checkout-cone-mode: false
       # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
           
       - name: Checkout Repository and Setup Python
