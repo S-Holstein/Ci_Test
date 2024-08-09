@@ -9,6 +9,9 @@ inputs:
   dependency:
     description: 'The tool to use'
     required: true
+#  cmd_run:
+#    description: 'cmd'
+#    required: true
 
 
 
@@ -25,6 +28,14 @@ runs:
         echo "synced/" >> .git/info/sparse-checkout
         git pull origin main
       shell: bash # Specify the shell to use, e.g., bash
+
+
+    - name: Test
+      run: |
+        echo "--------"
+        ls -a
+        echo "--------"
+      shell: bash
 
 
     - name: Set up Python 3.11
