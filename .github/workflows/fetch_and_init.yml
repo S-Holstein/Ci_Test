@@ -1,0 +1,27 @@
+# .github/workflows/python-setup.yml
+name: Python Setup
+
+on: workflow_call
+
+jobs:
+
+  FetchData:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
+      - name: Checkout Repository
+        run: |
+          git init
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git config core.sparseCheckout true
+          
+          echo "synced/" >> .git/info/sparse-checkout
+          
+          git pull origin main
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"

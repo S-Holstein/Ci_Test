@@ -71,23 +71,10 @@ jobs:
 
     steps:
 
-      - &setup_python
-        # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
-        - name: Checkout Repository
-          run: |
-            git init
-            git remote add origin https://github.com/${{ github.repository }}.git
-            git config core.sparseCheckout true
-  
-            echo "synced/" >> .git/info/sparse-checkout
-  
-            git pull origin main
-  
+      # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
+      - name: Checkout Repository and Setup Python
+        uses: ./.github/workflows/fetch_and_init.yml
 
-        - name: Set up Python 3.11
-          uses: actions/setup-python@v3
-          with:
-            python-version: "3.11"
 
 
       - name: Install dependencies
@@ -108,7 +95,9 @@ jobs:
 
     steps:
 
-      - *setup_python
+      - name: Checkout Repository and Setup Python
+        uses: ./.github/workflows/fetch_and_init.yml
+
 
       - name: Install dependencies
         run: |
