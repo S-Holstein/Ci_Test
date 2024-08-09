@@ -1,33 +1,28 @@
-name: Python Setup
+name: 'Fetch and Initialize'
+description: 'Fetches and initializes the repository, then sets up Python.'
 
-on:
-  workflow_call:
-    inputs:
-      repository:
-        default: 'S-Holstein/Ci_Test'
-        type: string
-
-jobs:
-  FetchData:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        run: |
-          git init
-          git remote add origin https://github.com/${{ inputs.repository }}.git
-          git config core.sparseCheckout true
-
-          echo "synced/" >> .git/info/sparse-checkout
-
-          git pull origin main
+inputs:
+  repository:
+    description: 'The repository to check out'
+    required: true
+    default: 'S-Holstein/Ci_Test'
 
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.11"
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout Repository
+      run: |
+        git init
+        git remote add origin https://github.com/${{ inputs.repository }}.git
+        git config core.sparseCheckout true
+        echo "synced/" >> .git/info/sparse-checkout
+        git pull origin main
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.11"
 
 
 
