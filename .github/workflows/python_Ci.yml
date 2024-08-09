@@ -47,7 +47,7 @@ jobs:
         with:
           repository: ${{ github.repository }}
           dependency: black
-          cmd_run: 'cd Dummy/ && black --check --diff --color .'
+          cmd_run: 'black --check --diff --color .'
           opt_in: "pyproject.toml"
 
 
