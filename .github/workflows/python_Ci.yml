@@ -41,6 +41,7 @@ jobs:
         git config core.sparseCheckout true
         
         echo "synced/" >> .git/info/sparse-checkout
+        echo "pyproject.toml" >> .git/info/sparse-checkout
         
         git pull origin main
   
@@ -58,15 +59,7 @@ jobs:
 
 
     - name: Format check with black
-      run: |
-        pwd
-        echo "-----------------" 
-        ls -a
-        echo "-----------------" 
-        ls Dummy/ -a
-        
-        cp Dummy/pyproject.toml .
-        black --check --diff --color .
+      run: black --check --diff --color .
 
 
 
