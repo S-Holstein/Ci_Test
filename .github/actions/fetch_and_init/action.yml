@@ -24,6 +24,7 @@ runs:
       with:
         sparse-checkout: |
           Dummy/synced/
+          !Dummy/
           .github
           
 
