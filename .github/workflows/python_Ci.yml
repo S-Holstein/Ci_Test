@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
+      - uses : actions/checkout@v4"
       # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
       - run: | 
           ls -a
