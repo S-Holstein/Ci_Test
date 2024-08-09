@@ -33,7 +33,7 @@ runs:
     - name: Test
       run: |
         echo "--------"
-        ls -a
+        ls -a Dummy
         echo "--------"
       shell: bash
 
