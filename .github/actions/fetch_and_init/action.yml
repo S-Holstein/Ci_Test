@@ -24,9 +24,8 @@ runs:
       with:
         sparse-checkout: |
           Dummy/synced/
-          !Dummy/
           .github
-          
+        sparse-checkout-cone-mode: false
 
     - name: Test
       run: |
