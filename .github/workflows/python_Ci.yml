@@ -12,6 +12,7 @@ on:
     paths:
       - 'Dummy/synced/**'
       - '.github/workflows/python_Ci.yml'
+      - '.github/workflows/fetch_and_init.yml'
 
 
   pull_request:
@@ -20,6 +21,7 @@ on:
     paths:
       - 'Dummy/synced/**'
       - '.github/workflows/python_Ci.yml'
+      - '.github/workflows/fetch_and_init.yml'
 
 
 
