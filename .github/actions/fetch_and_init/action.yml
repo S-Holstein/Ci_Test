@@ -12,6 +12,10 @@ inputs:
   cmd_run:
     description: 'cmd'
     required: true
+  opt_in:
+    description: "Black toml"
+    required: false
+    default: ""
 
 
 
@@ -25,6 +29,7 @@ runs:
         sparse-checkout: |
           Dummy/synced/
           .github
+          ${{ inputs.opt_in }}
         sparse-checkout-cone-mode: false
 
     - name: Test
