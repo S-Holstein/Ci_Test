@@ -75,8 +75,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            ./.github/actions/fetch_and_init/action.yml
-          sparse-checkout-cone-mode: false
+            .github
+
       # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
           
       - name: Checkout Repository and Setup Python
