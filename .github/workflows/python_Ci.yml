@@ -12,7 +12,7 @@ on:
     paths:
       - 'Dummy/synced/**'
       - '.github/workflows/python_Ci.yml'
-      - '.github/workflows/fetch_and_init.yml'
+      - '.github/actions/fetch_and_init/fetch_and_init.yml'
 
 
   pull_request:
@@ -21,7 +21,7 @@ on:
     paths:
       - 'Dummy/synced/**'
       - '.github/workflows/python_Ci.yml'
-      - '.github/workflows/fetch_and_init.yml'
+      - '.github/actions/fetch_and_init/fetch_and_init.yml'
 
 
 
@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      # - uses : actions/checkout@v4
       # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
           
       - name: Checkout Repository and Setup Python
