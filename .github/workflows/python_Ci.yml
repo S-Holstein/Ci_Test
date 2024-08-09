@@ -75,7 +75,7 @@ jobs:
 
       # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
       - name: Checkout Repository and Setup Python
-        uses: .github/workflows/fetch_and_init.yml
+        uses: /.github/workflows/fetch_and_init.yml
 
 
 
@@ -98,7 +98,7 @@ jobs:
     steps:
 
       - name: Checkout Repository and Setup Python
-        uses: .github/workflows/fetch_and_init.yml
+        uses: ./.github/workflows/fetch_and_init.yml
 
 
       - name: Install dependencies
