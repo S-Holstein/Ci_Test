@@ -74,6 +74,10 @@ jobs:
     steps:
 
       # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
+      - run: | 
+          ls -a
+          echo "-------"
+
       - name: Checkout Repository and Setup Python
         uses: ./.github/workflows/fetch_and_init.yml
 
