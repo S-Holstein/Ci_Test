@@ -72,7 +72,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - uses : actions/checkout@v4
+      - name: Checkout Composite Action
+        uses: actions/checkout@v4
+        with:
+          path: .github/actions/fetch_and_init
       # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
           
       - name: Checkout Repository and Setup Python
