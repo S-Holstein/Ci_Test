@@ -58,7 +58,9 @@ jobs:
 
 
     - name: Format check with black
-      run: black --check --diff --color .
+      run: |
+        cd /Dummy/
+        black --check --diff --color .
 
 
 
