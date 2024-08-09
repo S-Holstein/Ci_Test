@@ -1,4 +1,3 @@
-# .github/workflows/python-setup.yml
 name: Python Setup
 
 on: workflow_call
