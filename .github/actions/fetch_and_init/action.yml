@@ -18,6 +18,7 @@ runs:
         git config core.sparseCheckout true
         echo "synced/" >> .git/info/sparse-checkout
         git pull origin main
+      shell: bash # Specify the shell to use, e.g., bash
 
     - name: Set up Python 3.11
       uses: actions/setup-python@v3
