@@ -6,10 +6,16 @@ inputs:
     description: 'The repository to check out'
     required: true
     default: 'S-Holstein/Ci_Test'
+  dependency:
+    description: 'The tool to use'
+    required: true
+
 
 
 runs:
+
   using: 'composite'
+
   steps:
     - name: Checkout Repository
       run: |
@@ -20,10 +26,17 @@ runs:
         git pull origin main
       shell: bash # Specify the shell to use, e.g., bash
 
+
     - name: Set up Python 3.11
       uses: actions/setup-python@v3
       with:
         python-version: "3.11"
+
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install ${{ inputs.dependency }}
 
 
 
