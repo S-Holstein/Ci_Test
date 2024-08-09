@@ -20,8 +20,13 @@ runs:
   using: 'composite'
 
   steps:
-    - name: Test
+    - uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          Dummy/synced
+          
 
+    - name: Test
       run: |
         echo "--------"
         ls -a
