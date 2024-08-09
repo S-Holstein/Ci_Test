@@ -33,7 +33,7 @@ jobs:
 
     steps:
 
-      # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
+    # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
     - name: Checkout Repository
       run: |
         git init
@@ -71,22 +71,23 @@ jobs:
 
     steps:
 
-      # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
-      - name: Checkout Repository
-        run: |
-          git init
-          git remote add origin https://github.com/${{ github.repository }}.git
-          git config core.sparseCheckout true
+      - &setup_python
+        # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
+        - name: Checkout Repository
+          run: |
+            git init
+            git remote add origin https://github.com/${{ github.repository }}.git
+            git config core.sparseCheckout true
+  
+            echo "synced/" >> .git/info/sparse-checkout
+  
+            git pull origin main
+  
 
-          echo "synced/" >> .git/info/sparse-checkout
-
-          git pull origin main
-
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.11"
+        - name: Set up Python 3.11
+          uses: actions/setup-python@v3
+          with:
+            python-version: "3.11"
 
 
       - name: Install dependencies
@@ -107,23 +108,7 @@ jobs:
 
     steps:
 
-      # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
-      - name: Checkout Repository
-        run: |
-          git init
-          git remote add origin https://github.com/${{ github.repository }}.git
-          git config core.sparseCheckout true
-          
-          echo "synced/" >> .git/info/sparse-checkout
-          
-          git pull origin main
-
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.11"
-
+      - *setup_python
 
       - name: Install dependencies
         run: |
