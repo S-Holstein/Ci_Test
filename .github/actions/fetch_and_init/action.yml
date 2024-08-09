@@ -23,7 +23,7 @@ runs:
     - name: Checkout Repository
       run: |
         git init
-        git remote get-url origin || git remote add origin https://github.com/${{ inputs.repository }}.git
+        git remote add origin https://github.com/${{ inputs.repository }}.git
         git config core.sparseCheckout true
         
         echo "synced/" >> .git/info/sparse-checkout
