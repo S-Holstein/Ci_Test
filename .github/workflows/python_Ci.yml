@@ -79,7 +79,7 @@ jobs:
           echo "-------"
 
       - name: Checkout Repository and Setup Python
-        uses: ./.github/workflows/fetch_and_init.yml
+        uses: ./.github/actions/fetch_and_init
 
 
 
