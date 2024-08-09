@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # alternativ zu "use : actions / checkout@v4" sparse checkout für ausgewählte Daten
       - name: Checkout Repository
         run: |
           git init
