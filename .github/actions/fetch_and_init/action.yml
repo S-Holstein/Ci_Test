@@ -20,24 +20,27 @@ runs:
   using: 'composite'
 
   steps:
+    - name: Test
+
+      run: |
+        echo "--------"
+        ls -a
+        echo "--------"
+        ls -a Dummy
+        echo "--------"
+      shell: bash
+
+
     - name: Checkout Repository
       run: |
         git init
-        git remote add origin https://github.com/${{ inputs.repository }}.git
+        git remote get-url origin || git remote add origin https://github.com/${{ inputs.repository }}.git
         git config core.sparseCheckout true
         
         echo "synced/" >> .git/info/sparse-checkout
         
         git pull origin main
       shell: bash # Specify the shell to use, e.g., bash
-
-
-    - name: Test
-      run: |
-        echo "--------"
-        ls -a Dummy
-        echo "--------"
-      shell: bash
 
 
     - name: Set up Python 3.11
