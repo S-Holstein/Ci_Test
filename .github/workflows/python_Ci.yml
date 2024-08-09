@@ -12,7 +12,7 @@ on:
     paths:
       - 'Dummy/synced/**'
       - '.github/workflows/python_Ci.yml'
-      - '.github/actions/fetch_and_init/fetch_and_init.yml'
+      - '.github/actions/fetch_and_init/action.yml'
 
 
   pull_request:
@@ -21,7 +21,7 @@ on:
     paths:
       - 'Dummy/synced/**'
       - '.github/workflows/python_Ci.yml'
-      - '.github/actions/fetch_and_init/fetch_and_init.yml'
+      - '.github/actions/fetch_and_init/action.yml'
 
 
 
