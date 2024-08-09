@@ -59,14 +59,9 @@ jobs:
 
 
     - name: Format check with black
-      run: |
-        pwd
-        echo "-----------------" 
-        ls -a
-        echo "-----------------" 
-        ls Dummy/ -a
-        
-        cp Dummy/pyproject.toml .
+      run: |  
+#        cp Dummy/pyproject.toml .
+        cd Dummy/
         black --check --diff --color .
 
 
