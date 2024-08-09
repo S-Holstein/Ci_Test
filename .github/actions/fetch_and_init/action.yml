@@ -1,9 +1,13 @@
 name: Python Setup
 
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      repository:
+        default: 'S-Holstein/Ci_Test'
+        type: string
 
 jobs:
-
   FetchData:
 
     runs-on: ubuntu-latest
@@ -12,14 +16,19 @@ jobs:
       - name: Checkout Repository
         run: |
           git init
-          git remote add origin https://github.com/${{ github.repository }}.git
+          git remote add origin https://github.com/${{ inputs.repository }}.git
           git config core.sparseCheckout true
-          
+
           echo "synced/" >> .git/info/sparse-checkout
-          
+
           git pull origin main
+
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v3
         with:
           python-version: "3.11"
+
+
+
+
